@@ -1,0 +1,44 @@
+{
+"bounds": [
+80.25073458206988,
+13.110009375753982,
+80.37110444618865,
+13.275713028434282
+],
+"center": [
+80.31091951412927,
+13.192861202094132,
+11
+],
+"created": 1451374114276,
+"description": "coastal map of Chennai",
+"filesize": 391199192,
+"fillzoom": 16,
+"format": "webp",
+"id": "mapmeld.5rllfcjz",
+"mapbox_logo": true,
+"maxzoom": 17,
+"minzoom": 11,
+"modified": 1451374113805,
+"name": "COAST",
+"private": false,
+"scheme": "xyz",
+"tilejson": "2.0.0",
+"tiles": [
+"https://a.tiles.mapbox.com/v4/mapmeld.5rllfcjz/{z}/{x}/{y}.jpg?access_token=pk.eyJ1IjoibWFwbWVsZCIsImEiOiI0a1NzYW53In0.2gQTd6k9Ghw8UBK4DsciLA",
+"https://b.tiles.mapbox.com/v4/mapmeld.5rllfcjz/{z}/{x}/{y}.jpg?access_token=pk.eyJ1IjoibWFwbWVsZCIsImEiOiI0a1NzYW53In0.2gQTd6k9Ghw8UBK4DsciLA"
+],
+"version": "1.0.0",
+"webpage": "https://a.tiles.mapbox.com/v4/mapmeld.5rllfcjz/page.html?access_token=pk.eyJ1IjoibWFwbWVsZCIsImEiOiI0a1NzYW53In0.2gQTd6k9Ghw8UBK4DsciLA",
+"sheets":[
+    {
+          "id": "415892",
+          "bbox": [
+            80.25073458206988,
+            13.110009375753982,
+            80.37110444618865,
+            13.275713028434282
+          ]
+    }
+]
+}
