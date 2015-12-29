@@ -16,7 +16,7 @@
 13.192861202094132,
 11
 ],
-"year": 2015,
+"year": "2015",
 "created": 1451374114276,
 "description": "coastal map of Chennai",
 "filesize": 391199192,
@@ -30,7 +30,8 @@
 "name": "COAST",
 "private": false,
 "scheme": "xyz",
-"tilejson": "2.0.0",
+"tileset_type": "tms",
+"tilejson": "https://api.mapbox.com/v4/mapmeld.5rllfcjz.json?access_token=pk.eyJ1IjoibWFwbWVsZCIsImEiOiI0a1NzYW53In0.2gQTd6k9Ghw8UBK4DsciLA&secure",
 "tiles": [
 "https://a.tiles.mapbox.com/v4/mapmeld.5rllfcjz/{z}/{x}/{y}.jpg?access_token=pk.eyJ1IjoibWFwbWVsZCIsImEiOiI0a1NzYW53In0.2gQTd6k9Ghw8UBK4DsciLA",
 "https://b.tiles.mapbox.com/v4/mapmeld.5rllfcjz/{z}/{x}/{y}.jpg?access_token=pk.eyJ1IjoibWFwbWVsZCIsImEiOiI0a1NzYW53In0.2gQTd6k9Ghw8UBK4DsciLA"
