@@ -46,7 +46,7 @@ class @Progress
       scrollWheelZoom: true
       attributionControl: false
       minZoom: 7
-      maxZoom: 21
+      maxZoom: 17
       dragging: true
       # maxBounds: new L.LatLngBounds(@_SW, @_NE).pad(1)
     )
