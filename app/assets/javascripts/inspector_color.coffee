@@ -13,7 +13,7 @@ class Color extends Inspector
     @flags = []
 
   clearScreen: () =>
-    document.getElementById("multiple-checkbox").checked = false
+    # document.getElementById("multiple-checkbox").checked = false
     @clearFlags()
     @updateMultipleStatus()
     super()
@@ -109,8 +109,8 @@ class Color extends Inspector
     $("#save-button").addClass("active") if button == "save"
 
   multipleColorClick: (e) =>
-    @isMultiple = $("#multiple-checkbox").is(':checked')
-    @multipleClickInterfaceUpdates()
+    @isMultiple = false # $("#multiple-checkbox").is(':checked')
+    # @multipleClickInterfaceUpdates()
     @intro.nextStep() if @options.tutorialOn
 
   parseTutorial: (e) =>
@@ -120,8 +120,8 @@ class Color extends Inspector
       @isMultiple = true
     else
       @isMultiple = false
-    document.getElementById("multiple-checkbox").checked = @isMultiple
-    @multipleClickInterfaceUpdates()
+    # document.getElementById("multiple-checkbox").checked = @isMultiple
+    # @multipleClickInterfaceUpdates()
     t = @
     window.setTimeout( () ->
       t.intro.refresh()
