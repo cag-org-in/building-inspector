@@ -1,0 +1,240 @@
+@import "lib/css3-mixins";
+@import "lib/button-mixins";
+@import "variables";
+@import "compass";
+@import "compass/css3/transform";
+@import "compass/utilities/general/clearfix";
+@import "animate";
+
+#home-explained {
+  .header {
+    padding-top: 160px;
+    @include clearfix;
+
+    h3, h4 {
+      color: $white;
+    }
+
+    a {
+      color: $orange;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .first {
+    background: asset-url("home/explained-1.jpg", image);
+    text-align: center;
+    height: 300px;
+    background-size: cover;
+    // @include box-shadow(0 230px 110px -100px $grayLightest inset);
+
+    @media screen and (max-width: $desktopwidth) {
+      height: 200px;
+    }
+  }
+
+  h3, h4, h5 {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    color: $grayDarkest;
+    text-align: center;
+
+    @media screen and (max-width: $desktopwidth) {
+      width: auto;
+    }
+  }
+
+  h3 {
+    font-size: 2em;
+    text-transform: uppercase;
+    @media screen and (max-width: $desktopwidth) {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  h4 {
+    font-weight: normal;
+    line-height: 1.3em;
+  }
+
+  .numeral {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0 auto;
+    font-weight: normal;
+    border: 2px solid $grayDarkest;
+    line-height: 40px;
+    @include border-radius(40px);
+    text-align: center;
+    color: $grayDarkest;
+
+    @media screen and (max-width: $desktopwidth) {
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      font-size: 16px;
+      text-indent: 3px;
+      margin-bottom: 10px;
+      @include border-radius(20px);
+    }
+  }
+
+  h3, h4, h5, p {
+    max-width: none;
+
+    @media screen and (max-width: $desktopwidth) {
+      margin: 0 20px 1em;
+      padding: 0;
+    }
+  }
+
+  p {
+    color: $grayDark;
+    @media screen and (max-width: $desktopwidth) {
+      line-height: 1.5em;
+      // width: 280px;
+    }
+  }
+
+}
+
+.left {
+  width: 400px;
+  float: left;
+  text-align: right;
+}
+
+.right {
+  width: 400px;
+  float: right;
+  text-align: left;
+}
+
+.left, .right {
+  @media screen and (max-width: $desktopwidth) {
+    float: none;
+    margin: 10px auto 20px;
+    text-align: center;
+    width: auto;
+  }
+}
+
+.grouper {
+  width: 820px;
+  margin: 20px auto 2em;
+  @include clearfix;
+
+  p {
+    font-size: 1.2em;
+    line-height: 1.75em;
+  }
+
+  @media screen and (max-width: $desktopwidth) {
+    width: 320px;
+    margin: 10px auto 20px;
+
+    p {
+      font-size: 1em;
+    }
+  }
+}
+
+.centered {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.5em;
+  text-align: center;
+  line-height: 1.5em;
+
+  @media screen and (max-width: $desktopwidth) {
+    width: auto;
+  }
+}
+
+.graphic {
+  @include border-radius(5px);
+  @include clearfix;
+  @media screen and (max-width: $desktopwidth) {
+    @include border-radius(0);
+    margin-left: -45px;
+    margin-bottom: 0;
+  }
+}
+
+@include keyframes(atlas) {
+  0% {background-position: 433px 169px; }
+  25% {background-position: 33px 169px;}
+  85% {background-position: 33px 169px;}
+  100% {background-position: -433px 169px;}
+}
+
+@include keyframes(flash) {
+  0% {background-position: -400px 0; }
+  55% {background-position: 1px 0;}
+  75% {background-position: -400px 0;}
+}
+
+#capture-graphic {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background: $grayDark asset-url("home/capture-atlas.png", image) 33px 169px no-repeat;
+  @include animation(atlas 1.5s ease-out infinite);
+
+  .camera {
+    width: 29px;
+    height: 58px;
+    margin: 37px auto 0;
+    background: asset-url("home/capture-camera.png", image) no-repeat;
+  }
+
+  .flash {
+    width: 206px;
+    height: 151px;
+    margin: 5px auto 0;
+    background: asset-url("home/capture-flash.png", image) no-repeat;
+    @include animation(flash 1.5s steps(1) infinite);
+  }
+}
+
+@include keyframes(sheet) {
+  0% {
+    @include transform(rotate(0deg) scale(1));
+  }
+  30% {
+    @include transform(rotate(-57deg) scale(.38));
+  }
+  100% {
+    @include transform(rotate(-57deg) scale(.38));
+  }
+}
+
+#rectify-graphic {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  background: asset-url("home/rectify-mapbox.gif", image) no-repeat;
+  @include clearfix;
+
+  .sheet {
+    position: absolute;
+    width: 632px;
+    height: 335px;
+    background: asset-url("home/rectify-sheet.jpg", image) no-repeat;
+    left: -118px;
+    top: 34px;
+    @include animation(sheet 3s ease-out infinite);
+  }
+}
+
+#vectorize-graphic {
+  background: asset-url("home/vectorize.jpg", image) no-repeat;
+}
+
+

@@ -2,7 +2,7 @@ namespace :db do
 
   desc "Process consensus in POLYGONS (recurring)"
   task :calculate_consensus => :environment do
-    min_count = 3
+    min_count = 1
     threshold = 0.75
     # geometry
     Flag.connection.execute(build_polygon_consensus_query_for_task_value("geometry", "yes", min_count, threshold))

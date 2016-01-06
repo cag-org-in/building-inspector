@@ -36,7 +36,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 #buttons {
   .wrapper {
     position: relative;
-    width: 230px;
+    width: 300px;
     margin: 0 auto;
 
     @include clearfix;
@@ -118,10 +118,10 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
 
 #controls {
   position: absolute;
-  margin-left: -115px;
-  left: 50%;
+  left: 40px;
   height: 80px;
   bottom: 0;
+  margin-left: 0;
   background: transparent;
 
   .spinner {
@@ -130,7 +130,7 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
   }
 
   &.compact {
-    margin-left: -155px;
+    margin-left: 0;
     height: 110px;
 
     @include transition(height, 0.1s);
@@ -148,8 +148,11 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
     }
 
     .wrapper {
-      width: 310px;
-
+      width: 750px;
+      background: #222;
+      padding-left: 15px;
+      padding-bottom: 15px;
+      font-weight: bold;
     }
 
     @media screen and (max-width: $desktopwidth) {
@@ -227,9 +230,9 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
     }
   }
 
-  &#pink-button, &#blue-button, &#green-button, &#yellow-button, &#gray-button {
+  &.button {
     float: left;
-    width: 56px;
+    width: 66px;
     height: 40px;
     margin-right: 5px;
     margin-left: 0;
@@ -238,31 +241,37 @@ input[type=checkbox].css-checkbox:checked + label.css-label {
     color: $grayDarkest;
   }
 
-  &#pink-button, &#pink-button.pressed {
-    background: asset-url("color/pink.jpg", image);
-    margin-left: 0;
+  &#commercial-button, &#commercial-button.pressed {
+    background: asset-url("zoning/commercial.png", image);
+  }
+  &#industrial-button, &#industrial-button.pressed {
+    background: asset-url("zoning/industrial.png", image);
+  }
+  &#institutional-button, &#institutional-button.pressed {
+    background: asset-url("zoning/institutional.png", image);
+  }
+  &#lightindustrial-button, &#lightindustrial-button.pressed {
+    background: asset-url("zoning/lightindustrial.png", image);
+  }
+  &#mixedresidential-button, &#mixedresidential-button.pressed {
+    background: asset-url("zoning/mixedresidential.png", image);
+  }
+  &#openspacerec-button, &#openspacerec-button.pressed {
+    background: asset-url("zoning/openspacerec.png", image);
+  }
+  &#residential-button, &#residential-button.pressed {
+    background: asset-url("zoning/residential.png", image);
+  }
+  &#specialhazard-button, &#specialhazard-button.pressed {
+    background: asset-url("zoning/specialhazard.png", image);
+  }
+  &#waterbody-button, &#waterbody-button.pressed {
+    background: asset-url("zoning/waterbody.png", image);
+  }
+  &#nonurban-button, &#nonurban-button.pressed {
+    background: asset-url("zoning/nonurban.png", image);
   }
 
-  &#blue-button, &#blue-button.pressed {
-    background: asset-url("color/blue.jpg", image);
-    // background-color: $blue;
-  }
-
-  &#green-button, &#green-button.pressed {
-    background: asset-url("color/green.jpg", image);
-    // background-color: $greenPaper;
-  }
-
-  &#yellow-button, &#yellow-button.pressed {
-    background: asset-url("color/yellow.jpg", image);
-    // background-color: $yellow;
-  }
-
-  &#gray-button, &#gray-button.pressed {
-    background: asset-url("color/gray.jpg", image);
-    // background-color: $grayDarkest;
-    margin-right: 0;
-  }
 
   &.active {
     font-size: 24px;

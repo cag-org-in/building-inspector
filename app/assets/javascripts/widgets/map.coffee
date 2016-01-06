@@ -9,7 +9,7 @@ class MapWidget
       animate: true
       attributionControl: false
       minZoom: 12
-      maxZoom: 17
+      maxZoom: 21
       dragging: true
       tileLayer: # added this because maptiles.nypl does not support retina yet
         detectRetina: false

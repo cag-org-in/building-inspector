@@ -25,26 +25,53 @@ class Color extends Inspector
   addButtonListeners: () =>
     super()
     inspector = @
-    $("#pink-button").on("click", @submitPinkFlag)
-    $("#blue-button").on("click", @submitBlueFlag)
-    $("#yellow-button").on("click", @submitYellowFlag)
-    $("#green-button").on("click", @submitGreenFlag)
-    $("#gray-button").on("click", @submitGrayFlag)
-    $("#save-button").on("click", @submitMulticolorFlag)
+    $("#residential-button").on("click", @submitresidential)
+    .on("dblclick", (e) ->
+      e.preventDefault()
+    )
+    $("#mixedresidential-button").on("click", @submitmixedresidential)
+    .on("dblclick", (e) ->
+      e.preventDefault()
+    )
+    $("#commercial-button").on("click", @submitcommercial)
+    .on("dblclick", (e) ->
+      e.preventDefault()
+    )
+    $("#institutional-button").on("click", @submitinstitutional)
+    .on("dblclick", (e) ->
+      e.preventDefault()
+    )
+    $("#lightindustrial-button").on("click", @submitlightindustrial)
+    .on("dblclick", (e) ->
+      e.preventDefault()
+    )
+    $("#industrial-button").on("click", @submitindustrial)
+    .on("dblclick", (e) ->
+      e.preventDefault()
+    )
+    $("#specialhazard-button").on("click", @submitspecialhazard)
+    .on("dblclick", (e) ->
+      e.preventDefault()
+    )
+    $("#openspacerec-button").on("click", @submitopenspacerec)
+    .on("dblclick", (e) ->
+      e.preventDefault()
+    )
+    $("#nonurban-button").on("click", @submitnonurban)
+    .on("dblclick", (e) ->
+      e.preventDefault()
+    )
+    $("#waterbody-button").on("click", @submitwaterbody)
+    .on("dblclick", (e) ->
+      e.preventDefault()
+    )
 
-    $("#pink-button").on("dblclick", (e) ->
+    $("#error-button").on("click", @submiterror)
+    .on("dblclick", (e) ->
       e.preventDefault()
     )
-    $("#blue-button").on("dblclick", (e) ->
-      e.preventDefault()
-    )
-    $("#yellow-button").on("dblclick", (e) ->
-      e.preventDefault()
-    )
-    $("#green-button").on("dblclick", (e) ->
-      e.preventDefault()
-    )
-    $("#gray-button").on("dblclick", (e) ->
+    $("#nope-button").on("click", @submitnope)
+    .on("dblclick", (e) ->
       e.preventDefault()
     )
 
@@ -52,44 +79,33 @@ class Color extends Inspector
       e.preventDefault()
     )
 
-    $("body").keyup (e)->
-      # console.log "key", e.which
-      switch e.which
-        # IMPORTANT:
-        # a listener to key 32 (space)
-        # is already present in superclass
-        when 49 then inspector.submitPinkFlag(e)
-        when 97 then inspector.submitPinkFlag(e)
-        when 50 then inspector.submitBlueFlag(e)
-        when 98 then inspector.submitBlueFlag(e)
-        when 51 then inspector.submitYellowFlag(e)
-        when 99 then inspector.submitYellowFlag(e)
-        when 52 then inspector.submitGreenFlag(e)
-        when 100 then inspector.submitGreenFlag(e)
-        when 53 then inspector.submitGrayFlag(e)
-        when 101 then inspector.submitGrayFlag(e)
-
   removeButtonListeners: () =>
     super()
-    $("#pink-button").unbind()
-    $("#blue-button").unbind()
-    $("#yellow-button").unbind()
-    $("#green-button").unbind()
-    $("#gray-button").unbind()
-    $("#save-button").unbind()
+    $(".button, #save-button").unbind()
 
   activateButton: (button) ->
-    $("#blue-button").addClass("inactive") if button != "blue"
-    $("#pink-button").addClass("inactive") if button != "pink"
-    $("#yellow-button").addClass("inactive") if button != "yellow"
-    $("#green-button").addClass("inactive") if button != "green"
-    $("#gray-button").addClass("inactive") if button != "gray"
+    $("#residential-button").addClass("inactive") if button != "residential"
+    $("#residential-button").addClass("active") if button == "residential"
+    $("#mixedresidential-button").addClass("inactive") if button != "mixedresidential"
+    $("#mixedresidential-button").addClass("active") if button == "mixedresidential"
+    $("#commercial-button").addClass("inactive") if button != "commercial"
+    $("#commercial-button").addClass("active") if button == "commercial"
+    $("#institutional-button").addClass("inactive") if button != "institutional"
+    $("#institutional-button").addClass("active") if button == "institutional"
+    $("#lightindustrial-button").addClass("inactive") if button != "lightindustrial"
+    $("#lightindustrial-button").addClass("active") if button == "lightindustrial"
+    $("#industrial-button").addClass("inactive") if button != "industrial"
+    $("#industrial-button").addClass("active") if button == "industrial"
+    $("#specialhazard-button").addClass("inactive") if button != "specialhazard"
+    $("#specialhazard-button").addClass("active") if button == "specialhazard"
+    $("#openspacerec-button").addClass("inactive") if button != "openspacerec"
+    $("#openspacerec-button").addClass("active") if button == "openspacerec"
+    $("#nonurban-button").addClass("inactive") if button != "nonurban"
+    $("#nonurban-button").addClass("active") if button == "nonurban"
+    $("#waterbody-button").addClass("inactive") if button != "waterbody"
+    $("#waterbody-button").addClass("active") if button == "waterbody"
+
     $("#save-button").addClass("inactive") if button != "save"
-    $("#blue-button").addClass("active") if button == "blue"
-    $("#pink-button").addClass("active") if button == "pink"
-    $("#yellow-button").addClass("active") if button == "yellow"
-    $("#green-button").addClass("active") if button == "green"
-    $("#gray-button").addClass("active") if button == "gray"
     $("#save-button").addClass("active") if button == "save"
 
   multipleColorClick: (e) =>
@@ -118,47 +134,81 @@ class Color extends Inspector
 
   resetButtons: () ->
     super()
-    $("#blue-button").removeClass("active inactive pressed")
-    $("#pink-button").removeClass("active inactive pressed")
-    $("#yellow-button").removeClass("active inactive pressed")
-    $("#green-button").removeClass("active inactive pressed")
-    $("#gray-button").removeClass("active inactive pressed")
-    $("#save-button").removeClass("active inactive pressed")
+    $(".button, #save-button").removeClass("active inactive pressed")
 
-  submitPinkFlag: (e) =>
-    @activateButton("pink") unless @options.tutorialOn || @isMultiple
+  submitresidential: (e) =>
+    @activateButton("residential") unless @options.tutorialOn || @isMultiple
     if !@isMultiple
-      @submitFlag(e, "pink")
+      @submitFlag(e, "residential")
     else
-      @toggleColor("pink")
+      @toggleColor("residential")
+  submitmixedresidential: (e) =>
+    @activateButton("mixedresidential") unless @options.tutorialOn || @isMultiple
+    if !@isMultiple
+      @submitFlag(e, "mixedresidential")
+    else
+      @toggleColor("mixedresidential")
+  submitcommercial: (e) =>
+    @activateButton("commercial") unless @options.tutorialOn || @isMultiple
+    if !@isMultiple
+      @submitFlag(e, "commercial")
+    else
+      @toggleColor("commercial")
+  submitinstitutional: (e) =>
+    @activateButton("institutional") unless @options.tutorialOn || @isMultiple
+    if !@isMultiple
+      @submitFlag(e, "institutional")
+    else
+      @toggleColor("institutional")
+  submitlightindustrial: (e) =>
+    @activateButton("lightindustrial") unless @options.tutorialOn || @isMultiple
+    if !@isMultiple
+      @submitFlag(e, "lightindustrial")
+    else
+      @toggleColor("lightindustrial")
+  submitindustrial: (e) =>
+    @activateButton("industrial") unless @options.tutorialOn || @isMultiple
+    if !@isMultiple
+      @submitFlag(e, "industrial")
+    else
+      @toggleColor("industrial")
+  submitspecialhazard: (e) =>
+    @activateButton("specialhazard") unless @options.tutorialOn || @isMultiple
+    if !@isMultiple
+      @submitFlag(e, "specialhazard")
+    else
+      @toggleColor("specialhazard")
+  submitopenspacerec: (e) =>
+    @activateButton("openspacerec") unless @options.tutorialOn || @isMultiple
+    if !@isMultiple
+      @submitFlag(e, "openspacerec")
+    else
+      @toggleColor("openspacerec")
+  submitnonurban: (e) =>
+    @activateButton("nonurban") unless @options.tutorialOn || @isMultiple
+    if !@isMultiple
+      @submitFlag(e, "nonurban")
+    else
+      @toggleColor("nonurban")
+  submitwaterbody: (e) =>
+    @activateButton("waterbody") unless @options.tutorialOn || @isMultiple
+    if !@isMultiple
+      @submitFlag(e, "waterbody")
+    else
+      @toggleColor("waterbody")
 
-  submitBlueFlag: (e) =>
-    @activateButton("blue") unless @options.tutorialOn || @isMultiple
+  submiterror: (e) =>
+    @activateButton("error") unless @options.tutorialOn || @isMultiple
     if !@isMultiple
-      @submitFlag(e, "blue")
+      @submitFlag(e, "error")
     else
-      @toggleColor("blue")
-
-  submitYellowFlag: (e) =>
-    @activateButton("yellow") unless @options.tutorialOn || @isMultiple
+      @toggleColor("error")
+  submitnope: (e) =>
+    @activateButton("nope") unless @options.tutorialOn || @isMultiple
     if !@isMultiple
-      @submitFlag(e, "yellow")
+      @submitFlag(e, "nope")
     else
-      @toggleColor("yellow")
-
-  submitGreenFlag: (e) =>
-    @activateButton("green") unless @options.tutorialOn || @isMultiple
-    if !@isMultiple
-      @submitFlag(e, "green")
-    else
-      @toggleColor("green")
-
-  submitGrayFlag: (e) =>
-    @activateButton("gray") unless @options.tutorialOn || @isMultiple
-    if !@isMultiple
-      @submitFlag(e, "gray")
-    else
-      @toggleColor("gray")
+      @toggleColor("nope")
 
   toggleColor: (color) ->
     if @flags.indexOf(color) == -1
@@ -189,4 +239,3 @@ class Color extends Inspector
 
 $ ->
   new Color()
-

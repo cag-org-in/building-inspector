@@ -44,19 +44,19 @@ class Sheet < ActiveRecord::Base
                   INNER JOIN usersessions _S
                   ON _S.user_id = S.user_id
               )"
-      where = "sheet_id = #{sheet_id} AND F.session_id IS NULL AND CP.id IS NULL"
+      where = "sheet_id = #{sheet_id}" # AND CP.id IS NULL AND F.session_id IS NULL
     else
       join = " "
-      where = "sheet_id = #{sheet_id} AND CP.id IS NULL"
+      where = "sheet_id = #{sheet_id}" # AND CP.id IS NULL"
     end
 
     case type
     when "geometry"
       join += "LEFT JOIN consensuspolygons AS CP ON polygons.id = CP.flaggable_id AND CP.flaggable_type = 'Polygon' AND CP.task = "+ Sheet.sanitize(type)
     when "address", "color"
-      join += "INNER JOIN consensuspolygons AS CPG ON polygons.id = CPG.flaggable_id AND CPG.flaggable_type = 'Polygon' AND CPG.task = 'geometry' AND CPG.consensus = 'yes' LEFT JOIN consensuspolygons AS CP ON polygons.id = CP.flaggable_id AND CP.flaggable_type = 'Polygon' AND CP.task = " + Sheet.sanitize(type)
+      join += "INNER JOIN consensuspolygons AS CPG ON polygons.id = CPG.flaggable_id AND CPG.flaggable_type = 'Polygon' AND CPG.task = 'geometry' AND CPG.consensus = 'yes' LEFT JOIN consensuspolygons AS CP ON polygons.id = CP.flaggable_id AND CP.flaggable_type = 'Polygon'" # AND CP.task = " + Sheet.sanitize(type)
     when "polygonfix"
-      join += "INNER JOIN consensuspolygons AS CPG ON polygons.id = CPG.flaggable_id AND CPG.flaggable_type = 'Polygon' AND CPG.task = 'geometry' AND CPG.consensus = 'fix' LEFT JOIN consensuspolygons AS CP ON polygons.id = CP.flaggable_id AND CP.flaggable_type = 'Polygon' AND CP.task = " + Sheet.sanitize(type)
+      join += "INNER JOIN consensuspolygons AS CPG ON polygons.id = CPG.flaggable_id AND CPG.flaggable_type = 'Polygon' AND CPG.task = 'geometry' AND CPG.consensus = 'fix' LEFT JOIN consensuspolygons AS CP ON polygons.id = CP.flaggable_id AND CP.flaggable_type = 'Polygon'" # AND CP.task = " + Sheet.sanitize(type)
     else
       join += "LEFT JOIN consensuspolygons AS CP ON polygons.id = CP.flaggable_id AND CP.flaggable_type = 'Polygon' AND CP.task = "+ Sheet.sanitize(type)
     end
